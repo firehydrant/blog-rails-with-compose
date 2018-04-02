@@ -1,0 +1,8 @@
+version: '3.6'
+
+services:
+  web:
+    build: .
+    volumes:
+      - ./:/app
+    working_dir: /app
