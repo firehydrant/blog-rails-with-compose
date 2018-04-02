@@ -6,6 +6,12 @@ services:
     volumes:
       - ./:/app
     working_dir: /app
-    command: puma -b tcp://0.0.0.0:3000
+    command: puma
     ports:
       - 3000:3000
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres@db
+  db:
+    image: postgres:10.3-alpine
